@@ -347,7 +347,7 @@ Right → remote peer ka stream */}
       <div style={{ fontSize: 12, whiteSpace: "pre-wrap", background: "#0f0f14", borderRadius: 12, padding: 8, border: "1px solid #222", maxHeight: 180, overflow: "auto" }}>
         {logs.slice(-200).map((l, i) => <div key={i} style={{ opacity: 0.8 }}>{l}</div>)}
       </div>
-{/* Logs ka box jisme sirf last 200 messages show honge. */}
+{/* Logs ka box jisme sirf last 200 messages show hongee. */}
     </div>
   );
 }
