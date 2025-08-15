@@ -1,4 +1,4 @@
-<!-- WebRTC Video Call Application - Documentation
+WebRTC Video Call Application - Documentation
 This document explains the working of the WebRTC Video Call application using a WebSocket-based signaling server and a React-based client interface. The goal is to enable peer-to-peer (P2P) audio/video calls between two clients via WebRTC, while using WebSockets for signaling (exchanging call setup data).
 
 1. High-Level Workflow
@@ -64,4 +64,4 @@ The React client provides the UI and manages WebRTC connections:
 - WebRTC handles direct peer-to-peer streaming.
 - STUN server helps discover public IP and NAT traversal.
 - For real-world usage, TURN servers are recommended for NAT/firewall traversal.
-- HTTPS is required for getUserMedia on most browsers unless using localhost. -->
+- HTTPS is required for getUserMedia on most browsers unless using localhost.
