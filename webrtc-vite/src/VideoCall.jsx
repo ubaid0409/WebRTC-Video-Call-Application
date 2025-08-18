@@ -223,7 +223,7 @@ export default function VideoCall() {
 
   // UI actions
   const handleRegister = () => {
-    if (!myId.trim()) return alert("Plzz Enter Your Name");
+    if (!myId.trim()) return alert("Plzz enter caller name.");
 
     if (wsRef.current?.readyState !== WebSocket.OPEN) return alert("WebSocket not connected yet.");
     wsSend({ type: "register", userId: myId.trim() });
@@ -234,8 +234,8 @@ export default function VideoCall() {
 
   const handleStartCall = () => {
     if (status !== "registered") return alert("Register first.");
-    if (!targetId.trim()) return alert("Enter Target ID.");
-    if (targetId.trim() === myId.trim()) return alert("Target ID cannot be same as My ID.");
+    if (!targetId.trim()) return alert("Plzz enter callee name.");
+    if (targetId.trim() === myId.trim()) return alert("Callee name cannot be same as caller name.");
     wsSend({ type: "call", to: targetId.trim() });
     setStatus("calling");
   };
@@ -274,7 +274,7 @@ export default function VideoCall() {
       {/* Registration */}
       <div style={{ display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center" }}>
         <input
-          placeholder="Caller Name"
+          placeholder="Caller name"
           value={myId}
           onChange={(e) => setMyId(e.target.value)}
           style={{ padding: 8, borderRadius: 8, border: "1px solid #333", background: "#121218", color: "white" }}
@@ -298,7 +298,7 @@ Status show karta hai. */}
       {/* Dial */}
       <div style={{ display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center" }}>
         <input
-          placeholder="Calle Name"
+          placeholder="Calle name"
           value={targetId}
           onChange={(e) => setTargetId(e.target.value)}
           style={{ padding: 8, borderRadius: 8, border: "1px solid #333", background: "#121218", color: "white" }}
