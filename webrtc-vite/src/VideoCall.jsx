@@ -153,10 +153,8 @@ export default function VideoCall() {
       localStreamRef.current = stream;
       if (localVideoRef.current) localVideoRef.current.srcObject = stream;
       log("[MEDIA] local ready");
-    } catch (err) {
-      log("[MEDIA] failed", err?.name || "", err?.message || "");
-      alert("Camera/Mic not available. Continuing in receive-only mode.\n(" + (err?.message || err) + ")");
-      // receive-only: do nothing, we will still connect and receive remote
+    }  catch (err) {
+      alert("Media error, receive-only mode");
     }
   }
 // Camera/mic access lene ki koshish karta hai, warna receive-only mode me chale jata hai.
@@ -326,7 +324,7 @@ Hangup button → sirf in-call state me enabled. */}
 
       {/* Incoming call modal */}
       {status === "ringing" && incomingFrom && (
-        <div style={{ padding: 12, borderRadius: 12, background: "#4b4b4bff", border: "1px solid #333", display: "flex", gap: 8, alignItems: "center" }}>
+        <div style={{ padding: 12, borderRadius: 12, background: "#181820", border: "1px solid #333", display: "flex", gap: 8, alignItems: "center" }}>
           <b>Incoming call from: {incomingFrom}</b>
           <button onClick={handleAccept} style={{ padding: "6px 10px", borderRadius: 8 }}>Accept</button>
           <button onClick={handleReject} style={{ padding: "6px 10px", borderRadius: 8 }}>Reject</button>
@@ -347,7 +345,8 @@ Right → remote peer ka stream */}
       <div style={{ fontSize: 12, whiteSpace: "pre-wrap", background: "#0f0f14", borderRadius: 12, padding: 8, border: "1px solid #222", maxHeight: 180, overflow: "auto" }}>
         {logs.slice(-200).map((l, i) => <div key={i} style={{ opacity: 0.8 }}>{l}</div>)}
       </div>
-{/* Logs ka box jisme sirf last 200 messages show hongee. */}
+{/* Logs ka box jisme sirf last 200 messages show honge. */}
+
     </div>
   );
 }
