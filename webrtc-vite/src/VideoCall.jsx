@@ -223,7 +223,7 @@ export default function VideoCall() {
 
   // UI actions
   const handleRegister = () => {
-    if (!myId.trim()) return alert("Set your My ID (e.g., a)");
+    if (!myId.trim()) return alert("Plzz Enter Your Name");
 
     if (wsRef.current?.readyState !== WebSocket.OPEN) return alert("WebSocket not connected yet.");
     wsSend({ type: "register", userId: myId.trim() });
@@ -274,7 +274,7 @@ export default function VideoCall() {
       {/* Registration */}
       <div style={{ display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center" }}>
         <input
-          placeholder="My ID (e.g., a)"
+          placeholder="Caller Name"
           value={myId}
           onChange={(e) => setMyId(e.target.value)}
           style={{ padding: 8, borderRadius: 8, border: "1px solid #333", background: "#121218", color: "white" }}
@@ -298,7 +298,7 @@ Status show karta hai. */}
       {/* Dial */}
       <div style={{ display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center" }}>
         <input
-          placeholder="Target ID (e.g., b)"
+          placeholder="Calle Name"
           value={targetId}
           onChange={(e) => setTargetId(e.target.value)}
           style={{ padding: 8, borderRadius: 8, border: "1px solid #333", background: "#121218", color: "white" }}
